@@ -43,7 +43,7 @@ const renderMovies = (movies) => {
   movies.map((movie) => {
     const movieDiv = document.createElement("div");
     movieDiv.innerHTML = `
-        <img src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${
+        <img src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${
       movie.title
     } poster">
         <h3>${movie.title}</h3>`;
