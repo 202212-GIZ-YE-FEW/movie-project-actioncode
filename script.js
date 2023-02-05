@@ -79,3 +79,12 @@ const renderMovie = (movie) => {
 };
 
 document.addEventListener("DOMContentLoaded", autorun);
+
+
+// responsive buttom in navbar
+const buttomResponsiveness = document.getElementById('responsiveButton')
+
+buttomResponsiveness.addEventListener('click', () =>{
+  const navbar = document.getElementById('navbar')
+  navbar.classList.toggle('hidden')
+})

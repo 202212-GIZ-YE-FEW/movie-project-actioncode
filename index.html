@@ -7,10 +7,85 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" -->
         <!-- integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Movie</title>
 </head>
 
 <body>
+    <!-- navbar desgin -->
+    <nav class="bg-slate-700 flex text-white items-center justify-between flex-wrap pb-2 px-5">
+        <!-- logo desgin -->
+        <div>
+            <span class="font-semibold text-4xl text-red-400">Movflix</span>
+        </div>
+
+        <!-- toggle button -->
+        <div class="block lg:hidden" id="responsiveButton">
+            <button class="flex flex-col">
+                <div class="w-6 h-1 bg-white"></div>
+                <div class="w-6 h-1 bg-white my-1"></div>
+                <div class="w-6 h-1 bg-white"></div>
+            </button>
+        </div>
+
+        <!-- nav menu -->
+        <div id="navbar" class="w-full lg:w-auto block lg:flex lg:items-center lg:inline-block hidden">
+
+            <div class="lg:flex-grow text-2xl text-center space-x-3">
+                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                    Home
+                </a>
+
+                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                    Genres
+                </a>
+
+                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                    Filters
+                </a>
+
+                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                    Actors
+                </a>
+
+                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                    About Us
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- <nav class="navbar">
+        <h2 class="item">Logo</h2>
+
+        <ul class="item">
+            <li class="item_li">
+                <a href="#">Home</a>
+            </li>
+            <li class="item_li">
+                <a href="#">Genres</a>
+            </li>
+            <li class="item_li">
+                <a href="#">Movies</a>
+            </li>
+            <li class="item_li">
+                <a href="#">Actors</a>
+            </li>
+        </ul>
+
+        <div class="item">
+            <input type="text" placeholder="Search">
+            <button type="button">Search</button>
+        </div>
+
+        <span class="item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>              
+        </span>
+    </nav> -->
+
     <div class="container">
 
     </div>
