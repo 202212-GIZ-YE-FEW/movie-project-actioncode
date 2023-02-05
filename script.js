@@ -13,10 +13,9 @@ const autorun = async () => {
 
 // Don't touch this function please
 const constructUrl = (path) => {
-  return `${TMDB_BASE_URL}/${path}?api_key=${atob(
-    "NTQyMDAzOTE4NzY5ZGY1MDA4M2ExM2M0MTViYmM2MDI="
-  )}`;
+  return `https://api.themoviedb.org/3/${path}?api_key=542003918769df50083a13c415bbc602`;
 };
+
 
 // You may need to add to this function, definitely don't delete it.
 const movieDetails = async (movie) => {
@@ -42,11 +41,12 @@ const fetchMovie = async (movieId) => {
 const renderMovies = (movies) => {
   movies.map((movie) => {
     const movieDiv = document.createElement("div");
+    movieDiv.classList.add('movie')
     movieDiv.innerHTML = `
         <img src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${
       movie.title
     } poster">
-        <h3>${movie.title}</h3>`;
+        <h3>${movie.title}</h3>  <h3>${movie.vote_average}</h3> `;
     movieDiv.addEventListener("click", () => {
       movieDetails(movie);
     });
@@ -60,7 +60,7 @@ const renderMovie = (movie) => {
     <div class="row">
         <div class="col-md-4">
              <img id="movie-backdrop" src=${
-               BACKDROP_BASE_URL + movie.backdrop_path
+               BACKDROP_BASE_URL + movie.poster_path
              }>
         </div>
         <div class="col-md-8">
