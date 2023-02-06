@@ -20,8 +20,7 @@ const autorun = async () => {
 
 // Don't touch this function please
 const constructUrl = (path) => {
-  return `https://api.themoviedb.org/3/${path}?api_key=542003918769df50083a13c415bbc602`;
-  // return `${TMDB_BASE_URL}/${path}?${API_KEY}`;
+  return `${TMDB_BASE_URL}/${path}?${API_KEY}`;
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
@@ -77,17 +76,9 @@ const renderMovies = (movies) => {
     // const containerForHome = document.createElement('div')
     // containerForHome.add.classList('containerForHome')
     const movieDiv = document.createElement("div");
-<<<<<<< HEAD
-    movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
-     <h3 class="movie-title" >${movie.title}</h3> <h2 class="movie-average">${movie.vote_average}</h2> `;
-||||||| dcb75bd
-    movieDiv.innerHTML = `<img src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
-     <h3>${movie.title}</h3>`;
-=======
     movieDiv.classList.add('movie')
     movieDiv.innerHTML = `<img src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
     <h3 class="movie-title" >${movie.title}</h3>  <h2 class="movie-average">${movie.vote_average}</h2> `;
->>>>>>> 8675a08a8c08717dcb88d1c2de257fe0a0fa64ed
     movieDiv.addEventListener("click", () => {
       // send each movie by its id to get details
       movieDetails(movie);
@@ -101,7 +92,7 @@ const renderMovies = (movies) => {
 // own movie page which will get the needed information form the movie details
 const renderMovie = (movie) => {
   let genres = movie.genres;
-  const genre = genres.map(({ name }) => name).join(', ')
+  const genre = genres.map( ({ name }) => name).join(', ')
   CONTAINER.innerHTML = `
     <div class="movie-card">
         <div class="col-md-4">
@@ -128,7 +119,7 @@ document.addEventListener("DOMContentLoaded", autorun);
 // responsive buttom in navbar
 const buttomResponsiveness = document.getElementById('responsiveButton')
 
-buttomResponsiveness.addEventListener('click', () => {
+buttomResponsiveness.addEventListener('click', () =>{
   const navbar = document.getElementById('navbar')
   navbar.classList.toggle('hidden')
 })
@@ -136,11 +127,11 @@ buttomResponsiveness.addEventListener('click', () => {
 // first dropdown menu
 const dropdownBtn = document.getElementById('dropdownDefaultButton')
 const dropdown = document.getElementById('dropdown')
-dropdownBtn.addEventListener('click', () => {
-  if (dropdown.classList.contains('hidden')) {
+dropdownBtn.addEventListener('click',()=>{
+  if(dropdown.classList.contains('hidden')){
     dropdown.classList.remove('hidden')
     dropdown.classList.add('flex')
-  } else {
+  }else{
     dropdown.classList.add('hidden')
     dropdown.classList.remove('flex')
   }
@@ -149,11 +140,11 @@ dropdownBtn.addEventListener('click', () => {
 // second dropdown menu
 const dropdownBtn2 = document.getElementById('dropdownDefaultButton2')
 const dropdown2 = document.getElementById('dropdown2')
-dropdownBtn2.addEventListener('click', () => {
-  if (dropdown2.classList.contains('hidden')) {
+dropdownBtn2.addEventListener('click',()=>{
+  if(dropdown2.classList.contains('hidden')){
     dropdown2.classList.remove('hidden')
     dropdown2.classList.add('flex')
-  } else {
+  }else{
     dropdown2.classList.add('hidden')
     dropdown2.classList.remove('flex')
   }

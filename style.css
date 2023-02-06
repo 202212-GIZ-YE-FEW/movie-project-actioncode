@@ -1,47 +1,13 @@
-<<<<<<< HEAD
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
-
 * {
-||||||| dcb75bd
-*{
-=======
-* {
->>>>>>> 8675a08a8c08717dcb88d1c2de257fe0a0fa64ed
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 body {
     background-color: black;
     font-family: 'Roboto', sans-serif;
     height: 100vh;
-}
-
-/* .navbar{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    position: fixed;
-    background-color: aquamarine;
-    width: 100%;
-    height: 10%;
-    padding: 1rem;
-||||||| dcb75bd
-/* .navbar{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    position: fixed;
-    background-color: aquamarine;
-    width: 100%;
-    height: 10%;
-    padding: 1rem;
-=======
-body {
-    background-color: black;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
->>>>>>> 8675a08a8c08717dcb88d1c2de257fe0a0fa64ed
 }
 
 .container {
@@ -52,95 +18,12 @@ body {
     text-align: center;
 }
 
-<<<<<<< HEAD
-img {
-    /* padding: 20px;
-    width: 400px;
-    height: 600px; */
-||||||| dcb75bd
-img {
-    padding: 20px;
-=======
 
 
 /* style for movies in the home page */
 
 /* img {
->>>>>>> 8675a08a8c08717dcb88d1c2de257fe0a0fa64ed
     width: 400px;
-<<<<<<< HEAD
-    height: 600px;
-    border: 1px solid #fff;
-    border-radius: 20px;
-    box-shadow: 0px 5px 25px -1px #000;
-    margin: 10px;
-}
-
-.movie img {
-    width: 450px;
-    height: 700px;
-    border: 1px solid #fff;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
-}
-
-.movie:hover img {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-}
-
-.movie h3 {
-    color: #fff;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    padding: 10px 20px;
-    border-radius: 20px 20px 0 0;
-    transition: all 0.3s ease-in-out;
-    visibility: hidden;
-}
-
-.movie:hover h3 {
-    visibility: visible;
-    transform: translate(-50%, 0%);
-}
-
-.container div:hover img.movie-poster {
-    opacity: 0.5;
-    cursor: pointer;
-}
-
-.container div:hover h2.movie-average,
-.container div:hover h3.movie-title {
-    font-size: 50px;
-    color: #fff;
-    text-shadow: 0 0 10px #000;
-    text-align: center;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-}
-
-.container div:hover h2.movie-average {
-    top: 80%;
-}
-
-.container div {
-    position: relative;
-}
-
-.col-md-4 {
-    float: left;
-    transition: all 0.5s ease-in-out;
-    width: 10px;
-||||||| dcb75bd
-    height: 600px;
-=======
     height: 700px;
     border: 1px solid #fff;
     border-radius: 20px;
@@ -307,30 +190,8 @@ img#movie-backdrop {
     width: 500px;
     height: 300px;
 
->>>>>>> 8675a08a8c08717dcb88d1c2de257fe0a0fa64ed
 }
 
 #actors {
     margin: 24px 16px 0 0;
-}
-
-#icon {
-    display: contents;
-    flex-wrap: wrap;
-    width: 700px;
-}
-
-#logo {
-    width: 4em;
-    height: 4em;
-    border: 0px !important;
-    border-radius: 0px !important;
-    box-shadow: 0px 0px 0px 0px !important;
-    /* margin-right: 10px; */
-}
-
-#logo-name {
-    font-family: cursive;
-    font-size: x-large;
-    color: white;
 }
