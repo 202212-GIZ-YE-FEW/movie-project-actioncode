@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" -->
-        <!-- integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- tailwind link for customzation -->
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Movie</title>
 </head>
 
-<body>
+<body class="bg-white">
     <!-- navbar desgin -->
     <nav class="bg-slate-700 flex text-white items-center justify-between flex-wrap pb-2 px-5">
         <!-- logo desgin -->
@@ -19,72 +20,69 @@
             <span class="font-semibold text-4xl text-red-400">Movflix</span>
         </div>
 
-        <!-- toggle button -->
-        <div class="block lg:hidden" id="responsiveButton">
-            <button class="flex flex-col">
-                <div class="w-6 h-1 bg-white"></div>
-                <div class="w-6 h-1 bg-white my-1"></div>
-                <div class="w-6 h-1 bg-white"></div>
-            </button>
-        </div>
+        <!-- search engine -->
+        <form class="mt-3 grow">   
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-slate-700 focus:border-red-400" placeholder="Search For A Movie" required>
+                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-red-400 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-4 py-2">Search</button>
+            </div>
+        </form>
 
-        <!-- nav menu -->
-        <div id="navbar" class="w-full lg:w-auto block lg:flex lg:items-center lg:inline-block hidden">
-
-            <div class="lg:flex-grow text-2xl text-center space-x-3">
-                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
-                    Home
-                </a>
-
-                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
-                    Genres
-                </a>
-
-                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
-                    Filters
-                </a>
-
-                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
-                    Actors
-                </a>
-
-                <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
-                    About Us
-                </a>
+            <!-- toggle button -->
+            <div class="block lg:hidden" id="responsiveButton">
+                <button class="flex flex-col">
+                    <div class="w-6 h-1 bg-white"></div>
+                    <div class="w-6 h-1 bg-white my-1"></div>
+                    <div class="w-6 h-1 bg-white"></div>
+                </button>
             </div>
 
-        </div>
+            <!-- nav menu -->
+            <div id="navbar" class="w-full lg:w-auto block lg:flex lg:items-center lg:inline-block hidden">
+                <div class="lg:flex-grow text-2xl text-center space-x-3">
+                    <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                        Home
+                    </a>
+                    <!-- Genres dropdown menu -->
+                    <div class="block lg:inline-block relative group">
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" type="button"
+                            class="hover:text-red-400 mt-4">
+                            Genres ↓
+                        </button>
+                        <div id="dropdown"
+                            class="bg-gray-200 hidden flex-col rounded mt-1 p-2 text-sm w-32 overflow-y-auto absolute">
+                        </div>
+                    </div>
+                    <!-- Filters dropdown menu -->
+                    <div class="block lg:inline-block relative group">
+                        <button id="dropdownDefaultButton2" data-dropdown-toggle="dropdown" type="button"
+                            class="hover:text-red-400 mt-4">
+                            Filters ↓
+                        </button>
+                        <div id="dropdown2"
+                            class="bg-gray-200 hidden flex-col rounded mt-1 p-2 text-sm w-32 overflow-y-auto absolute">
+                            <!-- <a href="#"
+                                class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">Dashboard</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">Settings</a>
+                            <a href="#"
+                                class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">Earnings</a> -->
+                        </div>
+                    </div>
+
+                    <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                        Actors
+                    </a>
+
+                    <a href="#" class="block lg:inline-block hover:text-red-400 mt-4">
+                        About Us
+                    </a>
+                </div>
+            </div>
     </nav>
-
-    <!-- <nav class="navbar">
-        <h2 class="item">Logo</h2>
-
-        <ul class="item">
-            <li class="item_li">
-                <a href="#">Home</a>
-            </li>
-            <li class="item_li">
-                <a href="#">Genres</a>
-            </li>
-            <li class="item_li">
-                <a href="#">Movies</a>
-            </li>
-            <li class="item_li">
-                <a href="#">Actors</a>
-            </li>
-        </ul>
-
-        <div class="item">
-            <input type="text" placeholder="Search">
-            <button type="button">Search</button>
-        </div>
-
-        <span class="item">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>              
-        </span>
-    </nav> -->
 
     <div class="container">
 
@@ -93,6 +91,3 @@
 </body>
 
 </html>
-
-
-<!-- test 2 -->
