@@ -77,7 +77,7 @@ const renderMovies = (movies) => {
     // containerForHome.add.classList('containerForHome')
     const movieDiv = document.createElement("div");
     movieDiv.classList.add('movie')
-    movieDiv.innerHTML = `<img src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
+    movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
     <h3 class="movie-title" >${movie.title}</h3>  <h2 class="movie-average">${movie.vote_average}</h2> `;
     movieDiv.addEventListener("click", () => {
       // send each movie by its id to get details

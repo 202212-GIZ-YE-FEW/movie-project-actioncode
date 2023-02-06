@@ -213,3 +213,8 @@ img#movie-backdrop {
     padding-left: 5px;
     padding-right: 10px;
 }
+
+
+#navbar{
+      z-index: 9999;
+}
