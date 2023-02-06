@@ -39,6 +39,7 @@ const fetchGenres = async () => {
   return res.json();
 }
 
+// This function for fit and append geners in navbar
 const renderGenres = (genresArrayOfObject) => {
   const listGenre = document.getElementById("dropdown");
   console.log(genresArrayOfObject)
@@ -72,13 +73,26 @@ const movieDetails = async (movie) => {
 // movies in home Page
 const renderMovies = (movies) => {
   movies.map((movie) => {
+    // this is the container of the element in home
+    // const containerForHome = document.createElement('div')
+    // containerForHome.add.classList('containerForHome')
     const movieDiv = document.createElement("div");
+<<<<<<< HEAD
     movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
      <h3 class="movie-title" >${movie.title}</h3> <h2 class="movie-average">${movie.vote_average}</h2> `;
+||||||| dcb75bd
+    movieDiv.innerHTML = `<img src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
+     <h3>${movie.title}</h3>`;
+=======
+    movieDiv.classList.add('movie')
+    movieDiv.innerHTML = `<img src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
+    <h3 class="movie-title" >${movie.title}</h3>  <h2 class="movie-average">${movie.vote_average}</h2> `;
+>>>>>>> 8675a08a8c08717dcb88d1c2de257fe0a0fa64ed
     movieDiv.addEventListener("click", () => {
       // send each movie by its id to get details
       movieDetails(movie);
     });
+    // containerForHome.appendChild(movieDiv)
     CONTAINER.appendChild(movieDiv);
   });
 };
@@ -97,7 +111,7 @@ const renderMovie = (movie) => {
             <h2 id="movie-title">${movie.title}</h2>
             <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
             <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
-            <p id="movie-runtime"><b>Genres</b> ${genre}</p>
+            <p id="movie-runtime"><b>Genres</b>${genre}</p>
             <h3>Overview:</h3>
             <p id="movie-overview">${movie.overview}</p>
         </div>
