@@ -71,7 +71,8 @@ body {
 
 .container div:hover h2.movie-average,
 .container div:hover h3.movie-title {
-    font-size: 50px;
+    font-size: 25px;
+    font-family: fantasy;
     color: #fff;
     text-shadow: 0 0 10px #000;
     text-align: center;
@@ -194,4 +195,21 @@ img#movie-backdrop {
 
 #actors {
     margin: 24px 16px 0 0;
+}
+
+#icon {
+    display: contents;
+}
+
+#logo {
+    width: 4em;
+    height: 4em;
+    padding-right: 5px;
+}
+
+#logo-name {
+    font-family: cursive;
+    font-size: larger;
+    padding-left: 5px;
+    padding-right: 10px;
 }
