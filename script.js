@@ -109,7 +109,7 @@ const renderMovie = (movie) => {
         </div>
             <h3>Actors:</h3>
             <ul id="actors" class="list-unstyled"></ul>
-    </div>`;
+    `;
 };
 
 // for DOM which will start wiht the autorun function that will fetch everything in API
