@@ -7,6 +7,7 @@ const BACKDROP_BASE_URL = "http://image.tmdb.org/t/p/w780";
 
 // this container will hold the results that will come from the API
 const CONTAINER = document.querySelector(".container");
+const youtube = document.querySelector(".youtube");
 
 // Don't touch this function please
 const autorun = async () => {
@@ -111,12 +112,11 @@ const renderMovies = (movies) => {
 // own movie page which will get the needed information form the movie details
 const renderMovie = (movie) => {
   let genres = movie.genres;
-  const genre = genres.map( ({ name }) => name).join(', ')
+  const genre = genres.map(({ name }) => name).join(', ')
   trailersDetails(movie.id)
   CONTAINER.innerHTML = `
   <div class="movie-card">
   <div class="img-container">
-    <img id="movie-backdrop" src=${BACKDROP_BASE_URL + movie.backdrop_path}>
     <div class="content-container">
       <h2 id="movie-title">${movie.title}</h2>
       <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
@@ -124,16 +124,20 @@ const renderMovie = (movie) => {
       <p id="movie-runtime"><b>Genres</b>${genre}</p>
       <h3>Overview:</h3>
       <p id="movie-overview">${movie.overview}</p>
-      <div id="movie_trailer">
-        <iframe frameborder="0" id="trailer"></iframe>
-    </div>
       <h3>Actors:</h3>
       <ul id="actors" class="list-unstyled"></ul>
     </div>
   </div>
 </div>
-
+<div id="movie_trailer">
+  <iframe frameborder="0" id="trailer"></iframe>
+</div>
     `;
+
+    const element = document.querySelector('.movie-card');
+    element.style.backgroundImage = `url(${BACKDROP_BASE_URL + movie.backdrop_path})`;
+    element.style.backgroundSize = `cover`;
+    element.style.height = `700px`;
 };
 
 // for DOM which will start wiht the autorun function that will fetch everything in API
@@ -143,7 +147,7 @@ document.addEventListener("DOMContentLoaded", autorun);
 // responsive buttom in navbar
 const buttomResponsiveness = document.getElementById('responsiveButton')
 
-buttomResponsiveness.addEventListener('click', () =>{
+buttomResponsiveness.addEventListener('click', () => {
   const navbar = document.getElementById('navbar')
   navbar.classList.toggle('hidden')
 })
@@ -151,11 +155,11 @@ buttomResponsiveness.addEventListener('click', () =>{
 // first dropdown menu
 const dropdownBtn = document.getElementById('dropdownDefaultButton')
 const dropdown = document.getElementById('dropdown')
-dropdownBtn.addEventListener('click',()=>{
-  if(dropdown.classList.contains('hidden')){
+dropdownBtn.addEventListener('click', () => {
+  if (dropdown.classList.contains('hidden')) {
     dropdown.classList.remove('hidden')
     dropdown.classList.add('flex')
-  }else{
+  } else {
     dropdown.classList.add('hidden')
     dropdown.classList.remove('flex')
   }
@@ -164,11 +168,11 @@ dropdownBtn.addEventListener('click',()=>{
 // second dropdown menu
 const dropdownBtn2 = document.getElementById('dropdownDefaultButton2')
 const dropdown2 = document.getElementById('dropdown2')
-dropdownBtn2.addEventListener('click',()=>{
-  if(dropdown2.classList.contains('hidden')){
+dropdownBtn2.addEventListener('click', () => {
+  if (dropdown2.classList.contains('hidden')) {
     dropdown2.classList.remove('hidden')
     dropdown2.classList.add('flex')
-  }else{
+  } else {
     dropdown2.classList.add('hidden')
     dropdown2.classList.remove('flex')
   }

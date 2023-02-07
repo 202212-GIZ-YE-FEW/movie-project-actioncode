@@ -92,6 +92,12 @@ body {
   font-size: 36px;
   margin-top: 20px;
   flex-basis: 100%;
+  color: #fff;
+  font-family: fantasy;
+  width: 600px;
+  font-size: 100px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #movie-release-date,
