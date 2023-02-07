@@ -114,24 +114,25 @@ const renderMovie = (movie) => {
   const genre = genres.map( ({ name }) => name).join(', ')
   trailersDetails(movie.id)
   CONTAINER.innerHTML = `
-    <div class="movie-card">
-        <div class="col-md-4">
-             <img id="movie-backdrop" src=${BACKDROP_BASE_URL + movie.backdrop_path}>
-        </div>
-        <div class="col-md-8">
-            <h2 id="movie-title">${movie.title}</h2>
-            <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
-            <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
-            <p id="movie-runtime"><b>Genres:</b> ${genre}</p>
-            <h3>Overview:</h3>
-            <p id="movie-overview">${movie.overview}</p>
-        </div>
-    </div>
-    <div id="movie_trailer">
+  <div class="movie-card">
+  <div class="img-container">
+    <img id="movie-backdrop" src=${BACKDROP_BASE_URL + movie.backdrop_path}>
+    <div class="content-container">
+      <h2 id="movie-title">${movie.title}</h2>
+      <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
+      <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
+      <p id="movie-runtime"><b>Genres</b>${genre}</p>
+      <h3>Overview:</h3>
+      <p id="movie-overview">${movie.overview}</p>
+      <div id="movie_trailer">
         <iframe frameborder="0" id="trailer"></iframe>
     </div>
-            <h3>Actors:</h3>
-            <ul id="actors" class="list-unstyled"></ul>
+      <h3>Actors:</h3>
+      <ul id="actors" class="list-unstyled"></ul>
+    </div>
+  </div>
+</div>
+
     `;
 };
 
