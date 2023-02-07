@@ -116,29 +116,43 @@ const renderMovie = (movie) => {
   trailersDetails(movie.id)
   CONTAINER.innerHTML = `
   <div class="movie-card">
-  <div class="img-container">
-    <div class="content-container">
-      <h2 id="movie-title">${movie.title}</h2>
-      <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
-      <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
-      <p id="movie-runtime"><b>Genres</b>${genre}</p>
-      <h3>Overview:</h3>
-      <p id="movie-overview">${movie.overview}</p>
-      <h3>Actors:</h3>
-      <ul id="actors" class="list-unstyled"></ul>
+    <div class="img-container">
+      <div class="img-overlay"></div>
+      <div class="content-container">
+        <h2 id="movie-title">${movie.title}</h2>
+        <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
+        <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
+        <p id="movie-runtime"><b>Genres</b>${genre}</p>
+        <h3>Overview:</h3>
+        <p id="movie-overview">${movie.overview}</p>
+        
+        <ul id="actors" class="list-unstyled"></ul>
+      </div>
     </div>
   </div>
-</div>
-<div id="movie_trailer">
-  <iframe frameborder="0" id="trailer"></iframe>
-</div>
+  <div id="movie_trailer">
+    <iframe frameborder="0" id="trailer"></iframe>
+  </div>
     `;
 
-    const element = document.querySelector('.movie-card');
-    element.style.backgroundImage = `url(${BACKDROP_BASE_URL + movie.backdrop_path})`;
-    element.style.backgroundSize = `cover`;
-    element.style.height = `700px`;
-};
+    const imgContainer = document.querySelector('.img-container');
+    imgContainer.style.backgroundImage = `url(${BACKDROP_BASE_URL + movie.backdrop_path})`;
+    imgContainer.style.backgroundSize = `cover`;
+    imgContainer.style.height = `700px`;
+    
+    const imgOverlay = document.querySelector('.img-overlay');
+    imgOverlay.classList.add('img-overlay-class');
+    
+    imgOverlay.style.position = 'absolute';
+  
+    };
+    
+
+
+
+
+
+
 
 // for DOM which will start wiht the autorun function that will fetch everything in API
 document.addEventListener("DOMContentLoaded", autorun);

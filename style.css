@@ -89,6 +89,10 @@ body {
 
 
 #movie-title {
+
+  
+  text-shadow: 0 0 15px rgba(153, 0, 255, 0.8);
+
   font-size: 36px;
   margin-top: 20px;
   flex-basis: 100%;
@@ -100,44 +104,28 @@ body {
   justify-content: flex-start;
 }
 
-#movie-release-date,
-#movie-runtime {
-  font-size: 18px;
-  margin-top: 10px;
-  flex-basis: 50%;
-}
 
-.img-container {
-  position: relative;
-}
-
-#movie-backdrop {
+.img-overlay-class {
   position: absolute;
-  width: 2000px;
-  height: 650px;
-  object-fit: cover;
-  margin: 0 auto;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #888888;
-  display: flex;
-  align-items: center;
-  flex-basis: 50%;
-  z-index: -1;
-}
-
-.movie-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#movie-overview {
-  font-size: 18px;
-  margin-top: 20px;
-  flex-basis: 100%;
+  
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(278deg, rgba(0, 0, 0, 1) 2%, rgba(0, 0, 0, 0.5074404761904762) 20%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 10%),
+  linear-gradient(98deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.5074404761904762) 50%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
 }
 
 
+#movie-release-date{
+ background-color: ;
+
+}
+
+
+#movie_trailer{
+  padding: 100px;
+
+}
 
 
  /* The navbar supported style */
@@ -148,4 +136,48 @@ body {
 /* still didn't use it  */
 #actors {
   margin: 24px 16px 0 0;
+}
+
+
+
+#movie-release-date,
+#movie-runtime {
+  margin-top: 20px;
+  color: #fff;
+  padding: 20px 0px 0px 120px;
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+#movie-overview {
+  color: #fff;
+  font-size: 1.2em;
+  margin-top: 1em;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  padding-left: 300px;
+
+  
+}
+
+.content-container h3{
+  
+  font-size: 40px;
+  color: #f7dc6f;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ 
+  font-family: Arial, sans-serif;
+  font-weight:bolder;
+  
+  border-radius: 10px;
+  overflow: hidden;
 }
