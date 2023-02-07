@@ -1,3 +1,4 @@
+
 'use strict';
 const API_KEY = "api_key=542003918769df50083a13c415bbc602";
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
@@ -41,13 +42,11 @@ const fetchGenres = async () => {
 // This function for fit and append geners in navbar
 const renderGenres = (genresArrayOfObject) => {
   const listGenre = document.getElementById("dropdown");
-  console.log(genresArrayOfObject)
   genresArrayOfObject.map((oneGenre) => {
     const element = document.createElement('a')
     element.classList.add('block', 'px-4', 'py-2', 'text-black', 'hover:bg-gray-100', 'hover:text-red-400')
     element.innerText = `${oneGenre.name}`
     element.addEventListener("click", () => {
-      alert('yep')
       // getFilterdMoviesByGenres();
       // autorun(`discover/movie`, `&with_genres=${selectedGenras.join(",")}`);
     });
@@ -68,6 +67,26 @@ const movieDetails = async (movie) => {
   // own movie page
   renderMovie(movieRes);
 };
+
+//This function is to fetch the movie trailer
+const fetchTrailer = async (movieId) => {
+  const url = constructUrl(`movie/${movieId}/videos`);
+  const res = await fetch(url);
+  return res.json();
+}
+const trailersDetails = async (trailerId) => {
+  const videos = await fetchTrailer(trailerId);
+  // own movie trailer function
+  renderTrailer(videos.results[0]);
+}
+// This function get the trailer and display it
+const renderTrailer = (trailer) => {
+  const trailerDiv = document.getElementById('movie_trailer');
+  const videosIframe = document.getElementById("trailer");
+  videosIframe.setAttribute("src", `https://www.youtube.com/embed/${trailer.key}`);
+  trailerDiv.appendChild(videosIframe);
+}
+
 // You'll need to play with this function in order to add features and enhance the style.
 // movies in home Page
 const renderMovies = (movies) => {
@@ -93,6 +112,7 @@ const renderMovies = (movies) => {
 const renderMovie = (movie) => {
   let genres = movie.genres;
   const genre = genres.map( ({ name }) => name).join(', ')
+  trailersDetails(movie.id)
   CONTAINER.innerHTML = `
     <div class="movie-card">
         <div class="col-md-4">
@@ -102,11 +122,14 @@ const renderMovie = (movie) => {
             <h2 id="movie-title">${movie.title}</h2>
             <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
             <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
-            <p id="movie-runtime"><b>Genres</b>${genre}</p>
+            <p id="movie-runtime"><b>Genres:</b> ${genre}</p>
             <h3>Overview:</h3>
             <p id="movie-overview">${movie.overview}</p>
         </div>
-        </div>
+    </div>
+    <div id="movie_trailer">
+        <iframe frameborder="0" id="trailer"></iframe>
+    </div>
             <h3>Actors:</h3>
             <ul id="actors" class="list-unstyled"></ul>
     `;
