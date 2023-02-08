@@ -10,9 +10,9 @@ const CONTAINER = document.querySelector(".container");
 const youtube = document.querySelector(".youtube");
 
 // Don't touch this function please
-const autorun = async (path) => {
+const autorun = async (path,query) => {
   // movies in home Page
-  const movies = await fetchMovies(path);
+  const movies = await fetchMovies(path,query);
   renderMovies(movies.results);
 
   // for genres in first dropdown menu
@@ -26,9 +26,9 @@ const constructUrl = (path) => {
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
-const fetchMovies = async (path) => {
+const fetchMovies = async (path,query = "") => {
   // the fetch the movies that is streming know
-  const url = constructUrl(path);
+  const url = constructUrl(path)+query;
   const res = await fetch(url);
   return res.json();
 };
@@ -246,6 +246,6 @@ const searchBtn = document.getElementById('searchBtn')
 searchBtn.addEventListener('click', ()=>{
   if (search.value !== null) {
     containerChildDelete()
-    autorun(`search/movie &query=${search.value}`)
+    autorun(`search/movie`, `&query=${search.value}`);
   }
 })
