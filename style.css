@@ -89,21 +89,16 @@ body {
 
 
 #movie-title {
-
-  
-  text-shadow: 0 0 15px rgba(153, 0, 255, 0.8);
-
-  font-size: 36px;
-  margin-top: 20px;
-  flex-basis: 100%;
+  display: flex;
+  text-shadow: 0 0 15px rgba(153, 0, 255, 0.8); 
+  padding: 20px;
   color: #fff;
   font-family: fantasy;
   width: 600px;
-  font-size: 100px;
-  display: flex;
-  justify-content: flex-start;
-}
+  font-size: 60px;
 
+  
+}
 
 .img-overlay-class {
   position: absolute;
@@ -141,11 +136,11 @@ body {
 
 
 #movie-release-date,
-#movie-runtime {
-  margin-top: 20px;
+#movie-runtime,
+#movie-Genres,#movie-language,#recieved-votes {
   color: #fff;
-  padding: 20px 0px 0px 120px;
-  font-size: 20px;
+  padding: 20px 0px 0px 110px;
+  font-size: 18px;
   display: flex;
   justify-content: flex-start;
 }

@@ -120,11 +120,18 @@ const renderMovie = (movie) => {
       <div class="img-overlay"></div>
       <div class="content-container">
         <h2 id="movie-title">${movie.title}</h2>
-        <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
-        <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
-        <p id="movie-runtime"><b>Genres</b>${genre}</p>
+        <p id="movie-release-date"><b>Release Date: </b> ${movie.release_date}</p>
+        <p id="movie-runtime"><b>Runtime: </b> ${movie.runtime} Minutes</p>
+        <p id="movie-language"><b>Movie's Language: </b> ${
+          movie.original_language
+        }</p>
+        <p id="recieved-votes"> <b> Recieved Votes: </b> ${
+          movie.vote_count
+        } votes</p>
+        <p id="movie-Genres"><b>Genres: </b>${genre}</p>
         <h3>Overview:</h3>
         <p id="movie-overview">${movie.overview}</p>
+        
         
         <ul id="actors" class="list-unstyled"></ul>
       </div>
