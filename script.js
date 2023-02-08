@@ -412,3 +412,8 @@ const renderActor = (actorInfo, actorMovies) =>{
         </span>
   </div>`;
 }
+
+const about = document.getElementById('about')
+about.addEventListener('click', () =>{
+  
+})
