@@ -283,14 +283,32 @@ const GenresOfAllMoviesDetails = async (element) => {
 const getMoviesByGener = (element,GenresObject) => {
   const genersArray = [];
   GenresObject.map((eachGenresObjece) => {
-      genersArray.push(eachGenresObjece.genre_ids);
-  });
-  for (let i = 0; i < genersArray.length; i++) {
-    if (genersArray[i] == element ) {
-      console.log(genersArray[i])
-      containerChildDelete()
+    containerChildDelete()
+    for (let i = 0; i < eachGenresObjece.genre_ids.length; i++) {
+      if(eachGenresObjece.genre_ids[i] === element ) {
+        MovieGenerDetails(eachGenresObjece.id)
+      }
     }
-  }
+  })
+}
+const fetchMovieGener = async (movieId) => {
+  const url = constructUrl(`/movie/${movieId}`);
+  const res = await fetch(url);
+  return res.json();
+}
+const MovieGenerDetails = async (movieId) => {
+  const MovieGener = await fetchMovieGener(movieId);
+  renderMovieGener(MovieGener);
+}
+const renderMovieGener = (MovieGener) => {
+  const movieDiv = document.createElement("div");
+  movieDiv.classList.add('movie')
+  movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + MovieGener.poster_path}" alt="${MovieGener.title} poster">
+  <h3 class="movie-title">${MovieGener.title}</h3>  <h2 class="movie-average">${MovieGener.vote_average}</h2> `;
+  movieDiv.addEventListener("click", () => {
+    movieDetails(movie);
+  });
+  CONTAINER.appendChild(movieDiv);
 }
 
 // to return to the home page
