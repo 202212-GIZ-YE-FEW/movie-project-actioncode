@@ -88,12 +88,26 @@ const fetchMovie = async (movieId) => {
   const res = await fetch(url);
   return res.json();
 };
+// To fetch the actors in the movie
+const fetchMovieActors = async (movieId) => {
+  const url = constructUrl(`movie/${movieId}/credits`);
+  const res = await fetch(url);
+  return res.json();
+};
+// To fetch the movies the similar to the movie
+const fetchSameMovie = async (movieId) => {
+  const url = constructUrl(`movie/${movieId}/similar`);
+  const res = await fetch(url);
+  return res.json();
+};
 // You may need to add to this function, definitely don't delete it.
 // this function will get the the details of each movie by its id
 const movieDetails = async (movie) => {
   const movieRes = await fetchMovie(movie.id);
+  const movieActors = await fetchMovieActors(movie.id);
+  const sameMovie = await fetchSameMovie(movie.id);
   // own movie page
-  renderMovie(movieRes);
+  renderMovie(movieRes,movieActors.cast,sameMovie.results);
 };
 
 //This function is to fetch the movie trailer
@@ -117,10 +131,14 @@ const renderTrailer = (trailer) => {
 
 // You'll need to play with this function in order to add features and enhance the style.
 // own movie page which will get the needed information form the movie details
-const renderMovie = (movie) => {
+const renderMovie = (movie,actors,similar) => {
+  console.log(actors)
+  console.log(similar)
   let genres = movie.genres;
   const genre = genres.map(({ name }) => name).join(', ')
   trailersDetails(movie.id)
+  console.log(actors[2].name) 
+  console.log(similar[1].title) 
   CONTAINER.innerHTML = `
   <div class="movie-card">
     <div class="img-container">
@@ -143,6 +161,52 @@ const renderMovie = (movie) => {
         <ul id="actors" class="list-unstyled"></ul>
       </div>
     </div>
+  </div>
+  <div>
+    <b> Cast: </b>
+        <span>
+          <img src="${BACKDROP_BASE_URL + actors[0].profile_path}" alt="${actors[0].original_name} poster">
+          <h3>${actors[0].name}</h3>
+        </span>
+        <span>
+          <img src="${BACKDROP_BASE_URL + actors[1].profile_path}" alt="${actors[1].original_name} poster">
+          <h3>${actors[1].name}</h3>
+        </span>
+        <span>
+          <img src="${BACKDROP_BASE_URL + actors[2].profile_path}" alt="${actors[2].original_name} poster">
+          <h3>${actors[2].name}</h3>
+        </span>
+        <span> 
+          <img src="${BACKDROP_BASE_URL + actors[3].profile_path}" alt="${actors[3].original_name} poster">
+          <h3>${actors[3].name}</h3>
+        </span>
+        <span> 
+          <img src="${BACKDROP_BASE_URL + actors[4].profile_path}" alt="${actors[4].original_name} poster">
+          <h3>${actors[4].name}</h3>
+        </span>
+  </div>
+  <div>
+     <b> Similar Movies: </b>
+        <span>
+          <img src="${BACKDROP_BASE_URL + similar[0].poster_path }" alt="${similar[0].title} poster">
+          <h3>${similar[0].title}</h3>
+         </span>
+        <span> 
+          <img src="${BACKDROP_BASE_URL + similar[1].poster_path }" alt="${similar[1].title} poster">
+          <h3>${similar[1].title}</h3>
+        </span>
+        <span>
+          <img src="${BACKDROP_BASE_URL + similar[2].poster_path }" alt="${similar[2].title} poster">
+          <h3>${similar[2].title}</h3>
+        </span>
+        <span> 
+          <img src="${BACKDROP_BASE_URL + similar[3].poster_path }" alt="${similar[3].title} poster">
+          <h3>${similar[3].title}</h3>
+        </span>
+        <span> 
+          <img src="${BACKDROP_BASE_URL + similar[4].poster_path }" alt="${similar[4].title} poster">
+          <h3>${similar[4].title}</h3>
+        </span>
   </div>
   <div id="movie_trailer">
     <iframe frameborder="0" id="trailer"></iframe>
