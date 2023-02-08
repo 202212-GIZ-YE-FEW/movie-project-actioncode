@@ -44,9 +44,6 @@ const containerChildDelete = () => {
 // movies in home Page
 const renderMovies = (movies) => {
   movies.map((movie) => {
-    // this is the container of the element in home
-    // const containerForHome = document.createElement('div')
-    // containerForHome.add.classList('containerForHome')
     const movieDiv = document.createElement("div");
     movieDiv.classList.add('movie')
     movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
@@ -320,3 +317,33 @@ searchBtn.addEventListener('click', ()=>{
     autorun(`search/movie`, `&query=${search.value}`);
   }
 })
+
+// fetch and get the actors and thier information
+
+//  to fetch all the actors
+const actorElement = document.getElementById('actor')
+actorElement.addEventListener('click', () => actorsDetails())
+const actorsDetails = async () => {
+  const actors = await fetchActors()
+  renderActors(actors.results)
+}
+const fetchActors = async () => {
+  const url = constructUrl('person/popular');
+  const res = await fetch(url);
+  return res.json();
+}
+const renderActors = (actors) => {
+  containerChildDelete()
+  actors.map((actor) => {
+    const actorsDiv = document.createElement("div");
+    actorsDiv.classList.add('actor')
+    actorsDiv.innerHTML = `<img class="actor-post" src="${PROFILE_BASE_URL+ actor.profile_path}" alt="${actor.name} poster">
+    <h3 class="actor-name" >${actor.name}</h3>`;
+    actorsDiv.addEventListener("click", () => {
+      // send each actor by its id to get details
+      // movieDetails(movie);
+    });
+    CONTAINER.appendChild(actorsDiv);
+  });
+}
+
