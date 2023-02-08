@@ -18,26 +18,26 @@
     <!-- navbar desgin -->
     <nav class="bg-slate-700 flex-row flex text-white items-center justify-between flex-wrap px-5">
         <!-- logo desgin -->
-        <div id="icon" class="flex flex-row justify-center">
+        <div id="icon"  class="flex flex-row justify-center">
             <img id="logo" src="asset/img/logo.svg" height="100" width="100px" class="w-19 h-20">
             <h1 id="logo-name" class="w-15 h-8 py-8 pl-2 font-sans">Movflix</h1>
         </div>
 
         <!-- search engine -->
-        <div class="relative mt-3 basis-1/4 justify-center">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
+            <div class="relative mt-3 basis-1/4 justify-center">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="search" id="default_search"
+                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-slate-700 focus:border-red-400"
+                    placeholder="Search For A Movie" required>
+                <button type="button" id="searchBtn"
+                    class="text-white absolute right-2.5 bottom-2.5 bg-red-400 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-4 py-2">Search</button>
             </div>
-            <input type="search" id="default-search"
-                class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-slate-700 focus:border-red-400"
-                placeholder="Search For A Movie" required>
-            <button type="submit"
-                class="text-white absolute right-2.5 bottom-2.5 bg-red-400 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-4 py-2">Search</button>
-        </div>
 
         <!-- toggle button -->
         <div class="block lg:hidden" id="responsiveButton">
@@ -72,15 +72,10 @@
                     </button>
                     <div id="dropdown2"
                         class="bg-gray-200 hidden flex-col rounded mt-1 p-2 text-sm w-32 overflow-y-auto absolute">
-                        <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">popular</a>
-                        <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">relas
-                            date</a>
-                        <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">top
-                            rated</a>
-                        <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">playing
-                            now</a>
-                        <a href="#" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">coming
-                            up</a>
+                        <a href="#" id="popular" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">popular</a>
+                        <a href="#" id="top_rated" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">top rated</a>
+                        <a href="#" id="playing_now" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">playing now</a>
+                        <a href="#" id="coming_up" class="block px-4 py-2 text-black hover:bg-gray-100 hover:text-red-400">coming up</a>
                     </div>
                 </div>
 
