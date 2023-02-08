@@ -10,9 +10,9 @@ const CONTAINER = document.querySelector(".container");
 const youtube = document.querySelector(".youtube");
 
 // Don't touch this function please
-const autorun = async () => {
+const autorun = async (path) => {
   // movies in home Page
-  const movies = await fetchMovies();
+  const movies = await fetchMovies(path);
   renderMovies(movies.results);
 
   // for genres in first dropdown menu
@@ -26,11 +26,38 @@ const constructUrl = (path) => {
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
-const fetchMovies = async () => {
+const fetchMovies = async (path) => {
   // the fetch the movies that is streming know
-  const url = constructUrl(`movie/now_playing`);
+  const url = constructUrl(path);
   const res = await fetch(url);
   return res.json();
+};
+
+// This function is to delete the child of container in home page to get new movies based on filters
+const containerChildDelete = () => {
+  while (CONTAINER.firstChild) {
+    CONTAINER.firstChild.remove();
+  }
+}
+
+// You'll need to play with this function in order to add features and enhance the style.
+// movies in home Page
+const renderMovies = (movies) => {
+  movies.map((movie) => {
+    // this is the container of the element in home
+    // const containerForHome = document.createElement('div')
+    // containerForHome.add.classList('containerForHome')
+    const movieDiv = document.createElement("div");
+    movieDiv.classList.add('movie')
+    movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
+    <h3 class="movie-title" >${movie.title}</h3>  <h2 class="movie-average">${movie.vote_average}</h2> `;
+    movieDiv.addEventListener("click", () => {
+      // send each movie by its id to get details
+      movieDetails(movie);
+    });
+    // containerForHome.appendChild(movieDiv)
+    CONTAINER.appendChild(movieDiv);
+  });
 };
 
 // This function fetch the genres
@@ -48,7 +75,7 @@ const renderGenres = (genresArrayOfObject) => {
     element.classList.add('block', 'px-4', 'py-2', 'text-black', 'hover:bg-gray-100', 'hover:text-red-400')
     element.innerText = `${oneGenre.name}`
     element.addEventListener("click", () => {
-      // getFilterdMoviesByGenres();
+      GenresOfAllMoviesDetails(oneGenre.id)
       // autorun(`discover/movie`, `&with_genres=${selectedGenras.join(",")}`);
     });
     listGenre.appendChild(element);
@@ -89,26 +116,6 @@ const renderTrailer = (trailer) => {
 }
 
 // You'll need to play with this function in order to add features and enhance the style.
-// movies in home Page
-const renderMovies = (movies) => {
-  movies.map((movie) => {
-    // this is the container of the element in home
-    // const containerForHome = document.createElement('div')
-    // containerForHome.add.classList('containerForHome')
-    const movieDiv = document.createElement("div");
-    movieDiv.classList.add('movie')
-    movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + movie.poster_path}" alt="${movie.title} poster">
-    <h3 class="movie-title" >${movie.title}</h3>  <h2 class="movie-average">${movie.vote_average}</h2> `;
-    movieDiv.addEventListener("click", () => {
-      // send each movie by its id to get details
-      movieDetails(movie);
-    });
-    // containerForHome.appendChild(movieDiv)
-    CONTAINER.appendChild(movieDiv);
-  });
-};
-
-// You'll need to play with this function in order to add features and enhance the style.
 // own movie page which will get the needed information form the movie details
 const renderMovie = (movie) => {
   let genres = movie.genres;
@@ -146,13 +153,6 @@ const renderMovie = (movie) => {
     imgOverlay.style.position = 'absolute';
   
     };
-    
-
-
-
-
-
-
 
 // for DOM which will start wiht the autorun function that will fetch everything in API
 document.addEventListener("DOMContentLoaded", autorun);
@@ -189,5 +189,63 @@ dropdownBtn2.addEventListener('click', () => {
   } else {
     dropdown2.classList.add('hidden')
     dropdown2.classList.remove('flex')
+  }
+})
+
+// This function get all the movies to know the genres
+const fetchGenresOfAllMovies = async () => {
+  const url = constructUrl(`discover/movie`);
+  const res = await fetch(url);
+  return res.json();
+}
+const GenresOfAllMoviesDetails = async (element) => {
+  const genreOfMovies = await fetchGenresOfAllMovies()
+  getMoviesByGener(element, genreOfMovies.results)
+}
+// This function is to open based on geners
+const getMoviesByGener = (element,GenresObject) => {
+  const genersArray = [];
+  GenresObject.map((eachGenresObjece) => {
+      genersArray.push(eachGenresObjece.genre_ids);
+  });
+  for (let i = 0; i < genersArray.length; i++) {
+    if (genersArray[i] == element ) {
+      console.log(genersArray[i])
+      containerChildDelete()
+    }
+  }
+}
+
+// for DOM which will start wiht the autorun function that will fetch everything in API
+document.addEventListener("DOMContentLoaded", autorun('movie/now_playing'));
+
+// These functions for filter movies
+const popular = document.getElementById('popular')
+popular.addEventListener('click', () => {
+  containerChildDelete()
+  autorun(`movie/popular`)})
+
+const top_rated = document.getElementById('top_rated')
+top_rated.addEventListener('click', () => {
+  containerChildDelete()
+  autorun(`movie/top_rated`)})
+
+const coming_up = document.getElementById('coming_up')
+coming_up.addEventListener('click', () => {
+  containerChildDelete()
+  autorun(`movie/upcoming`)})
+
+const playing_now = document.getElementById('playing_now')
+playing_now.addEventListener('click', () => {
+  containerChildDelete()
+  autorun(`movie/now_playing`)})
+
+// These codes for search engine
+const search = document.getElementById('default_search')
+const searchBtn = document.getElementById('searchBtn')
+searchBtn.addEventListener('click', ()=>{
+  if (search.value !== null) {
+    containerChildDelete()
+    autorun(`search/movie &query=${search.value}`)
   }
 })
