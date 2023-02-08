@@ -284,6 +284,13 @@ const getMoviesByGener = (element,GenresObject) => {
   }
 }
 
+// to return to the home page
+const home = document.getElementById('home')
+home.addEventListener('click', () => {
+  containerChildDelete()
+  autorun(`movie/now_playing`)
+})
+
 // for DOM which will start wiht the autorun function that will fetch everything in API
 document.addEventListener("DOMContentLoaded", autorun('movie/now_playing'));
 
