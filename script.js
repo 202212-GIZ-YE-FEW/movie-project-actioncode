@@ -352,9 +352,9 @@ const renderActors = (actors) => {
   containerChildDelete()
   actors.map((actor) => {
     const actorsDiv = document.createElement("div");
-    actorsDiv.classList.add('actor')
-    actorsDiv.innerHTML = `<img class="actor-post" src="${PROFILE_BASE_URL+ actor.profile_path}" alt="${actor.name}">
-    <h3 class="actor-name" >${actor.name}</h3>`;
+    actorsDiv.classList.add('movie')
+    actorsDiv.innerHTML = `<img class="movie-poster" src="${PROFILE_BASE_URL+ actor.profile_path}" alt="${actor.name}">
+    <h3 class="movie-title" >${actor.name}</h3>`;
     actorsDiv.addEventListener("click", () => {
       // send each actor by its id to get details
       console.log(actor.id)
