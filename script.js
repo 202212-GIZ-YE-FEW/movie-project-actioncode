@@ -134,8 +134,6 @@ const renderMovie = (movie,actors,similar) => {
   let genres = movie.genres;
   const genre = genres.map(({ name }) => name).join(', ')
   trailersDetails(movie.id)
-  console.log(actors[2].name) 
-  console.log(similar[1].title) 
   CONTAINER.innerHTML = `
   <div class="movie-card">
     <div class="img-container">
@@ -162,23 +160,23 @@ const renderMovie = (movie,actors,similar) => {
   <div>
     <b> Cast: </b>
         <span>
-          <img src="${BACKDROP_BASE_URL + actors[0].profile_path}" alt="${actors[0].original_name} poster">
+          <img src="${PROFILE_BASE_URL + actors[0].profile_path}" alt="${actors[0].original_name}">
           <h3>${actors[0].name}</h3>
         </span>
         <span>
-          <img src="${BACKDROP_BASE_URL + actors[1].profile_path}" alt="${actors[1].original_name} poster">
+          <img src="${PROFILE_BASE_URL + actors[1].profile_path}" alt="${actors[1].original_name}">
           <h3>${actors[1].name}</h3>
         </span>
         <span>
-          <img src="${BACKDROP_BASE_URL + actors[2].profile_path}" alt="${actors[2].original_name} poster">
+          <img src="${PROFILE_BASE_URL + actors[2].profile_path}" alt="${actors[2].original_name}">
           <h3>${actors[2].name}</h3>
         </span>
         <span> 
-          <img src="${BACKDROP_BASE_URL + actors[3].profile_path}" alt="${actors[3].original_name} poster">
+          <img src="${PROFILE_BASE_URL + actors[3].profile_path}" alt="${actors[3].original_name}">
           <h3>${actors[3].name}</h3>
         </span>
         <span> 
-          <img src="${BACKDROP_BASE_URL + actors[4].profile_path}" alt="${actors[4].original_name} poster">
+          <img src="${PROFILE_BASE_URL + actors[4].profile_path}" alt="${actors[4].original_name}">
           <h3>${actors[4].name}</h3>
         </span>
   </div>
@@ -207,8 +205,7 @@ const renderMovie = (movie,actors,similar) => {
   </div>
   <div id="movie_trailer">
     <iframe frameborder="0" id="trailer"></iframe>
-  </div>
-    `;
+  </div>`;
 
     const imgContainer = document.querySelector('.img-container');
     imgContainer.style.backgroundImage = `url(${BACKDROP_BASE_URL + movie.backdrop_path})`;
@@ -344,13 +341,82 @@ const renderActors = (actors) => {
   actors.map((actor) => {
     const actorsDiv = document.createElement("div");
     actorsDiv.classList.add('actor')
-    actorsDiv.innerHTML = `<img class="actor-post" src="${PROFILE_BASE_URL+ actor.profile_path}" alt="${actor.name} poster">
+    actorsDiv.innerHTML = `<img class="actor-post" src="${PROFILE_BASE_URL+ actor.profile_path}" alt="${actor.name}">
     <h3 class="actor-name" >${actor.name}</h3>`;
     actorsDiv.addEventListener("click", () => {
       // send each actor by its id to get details
-      // movieDetails(movie);
+      console.log(actor.id)
+      actorDetails(actor.id);
     });
     CONTAINER.appendChild(actorsDiv);
   });
 }
 
+// to fetch and get the own actor information
+const actorDetails = async (actorId) => {
+  const actorInfo = await fetchActor(actorId);
+  const actorMovies = await fetchActorMovies(actorId);
+  alert("one")
+  renderActor(actorInfo, actorMovies.cast);
+}
+const fetchActor = async (actorId) => {
+  const url = constructUrl(`person/${actorId}`);
+  alert("two")
+  const res = await fetch(url);
+  return res.json();
+}
+const fetchActorMovies = async (actorId) => {
+  const url2 = constructUrl(`person/${actorId}/movie_credits`);
+  alert("three")
+  const res = await fetch(url2);
+  return res.json();
+}
+const renderActor = (actorInfo, actorMovies) =>{
+  alert("four")
+  let actorGenrder =" ";
+  if (actorInfo.genrder === 1) {
+    actorGenrder = "Male"
+  }else if(actorInfo.genrder === 2) {
+    actorGenrder = "Female"
+  }else{
+    actorGenrder = "Known"
+  }
+  console.log(actorInfo.name)
+  alert('five')
+  CONTAINER.innerHTML = `
+  <div class="actor-card">
+        <h2 id="actor-name">${actorInfo.name}</h2>
+        <div>
+        <img src="${PROFILE_BASE_URL + actorInfo.profile_path}" alt="${actorInfo.name}">
+       </div>
+        <p id="actor-gender"><b>Gender: </b> ${actorGenrder}</p>
+        <p id="actor-popularity"><b>Popularity: </b> ${actorInfo.popularity} Minutes</p>
+        <p id="actor-birthday"><b>Birthday: </b> ${actorInfo.birthday}</p>
+        <p id="actor-deathday"> <b>Deathday: </b> ${actorInfo.deathday} </p>
+        <h3>Biography:</h3>
+        <p id="actor-biography">${actorInfo.biography}</p>
+  </div>
+  <div>
+    <b>Actor Participation:</b>
+        <span>
+          <img src="${BACKDROP_BASE_URL + actorMovies[0].poster_path}" alt="${actorMovies[0].title} poster">
+          <h3>${actorMovies[0].title}</h3>
+        </span>
+        <span>
+          <img src="${BACKDROP_BASE_URL + actorMovies[1].poster_path}" alt="${actorMovies[1].title} poster">
+          <h3>${actorMovies[1].title}</h3>
+        </span>
+        <span>
+          <img src="${BACKDROP_BASE_URL + actorMovies[3].poster_path}" alt="${actorMovies[2].title} poster">
+          <h3>${actorMovies[2].title}</h3>
+        </span>
+        <span> 
+          <img src="${BACKDROP_BASE_URL + actorMovies[4].poster_path}" alt="${actorMovies[3].title} poster">
+          <h3>${actorMovies[3].title}</h3>
+        </span>
+        <span> 
+          <img src="${BACKDROP_BASE_URL + actorMovies[5].poster_path}" alt="${actorMovies[4].title} poster">
+          <h3>${actorMovies[4].title}</h3>
+        </span>
+  </div>`;
+}
