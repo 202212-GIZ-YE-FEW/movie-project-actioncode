@@ -249,6 +249,7 @@ body {
 
 
 .Similar-Movies {
+  padding-top: 350px;
   display: flex;
 }
 
@@ -256,4 +257,41 @@ body {
 .Similar-Movies span{
   display: flex;
   padding: 40px;
+}
+
+
+.Similar-Movies span {
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+  
+}
+
+.Similar-Movies img {
+  width: 150px;
+  height: 200px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgb(178, 255, 13);
+ 
+
+}
+
+.Similar-Movies h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+
+
+
+.img-container h3.name{
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bolder;
+  
+  justify-content: center;
+  
 }

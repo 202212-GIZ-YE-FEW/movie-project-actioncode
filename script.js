@@ -121,10 +121,42 @@ const trailersDetails = async (trailerId) => {
 // This function get the trailer and display it
 const renderTrailer = (trailer) => {
   const trailerDiv = document.getElementById('movie_trailer');
-  const videosIframe = document.getElementById("trailer");
-  videosIframe.setAttribute("src", `https://www.youtube.com/embed/${trailer.key}`);
-  trailerDiv.appendChild(videosIframe);
-}
+  const videosIframe = document.createElement("iframe");
+  videosIframe.setAttribute("src", `https://www.youtube.com/embed/${trailer.key}?autoplay=1`);
+  videosIframe.setAttribute("frameborder", 0);
+  videosIframe.setAttribute("id", "trailer");
+  videosIframe.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in- picture");
+  videosIframe.setAttribute("allowfullscreen", true);
+  const videoContainer = document.createElement("div");
+  videoContainer.setAttribute("class", "video-container");
+  videoContainer.appendChild(videosIframe);
+  trailerDiv.appendChild(videoContainer);
+};
+
+const customStyles = `
+  .video-container {
+    position: relative;
+    padding-bottom: 46.25%;
+    height: 0;
+    overflow: hidden;
+    width: 640px;
+    background-size: cover;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.innerHTML = customStyles;
+document.head.appendChild(styleSheet);
+
+
 
 // You'll need to play with this function in order to add features and enhance the style.
 // own movie page which will get the needed information form the movie details
@@ -153,44 +185,41 @@ const renderMovie = (movie,actors,similar) => {
         
         <ul id="actors" class="list-unstyled"></ul>
       </div>
+      <div class="slider">
+
+      <figure>
+    
+    
+      <img src="${BACKDROP_BASE_URL + actors[0].profile_path}" alt="${actors[0].original_name} poster">
+      <h3>${actors[0].name}</h3>
+    
+    
+      <img src="${BACKDROP_BASE_URL + actors[1].profile_path}" alt="${actors[1].original_name} poster">
+      <h3>${actors[1].name}</h3>
+    
+    
+      <img src="${BACKDROP_BASE_URL + actors[2].profile_path}" alt="${actors[2].original_name} poster">
+      <h3>${actors[2].name}</h3>
+    
+    
+      <img src="${BACKDROP_BASE_URL + actors[3].profile_path}" alt="${actors[3].original_name} poster">
+      <h3>${actors[3].name}</h3>
+    
+    
+      <img src="${BACKDROP_BASE_URL + actors[4].profile_path}" alt="${actors[4].original_name} poster">
+      <h3>${actors[4].name}</h3>
+      </figure>
     </div>
+    <h3 class="name"> Similar Movies:</h3>
+      
+    </div>
+ 
   </div>
 
+<div class="Similar-Movies"  value =Similar Movies >
+ 
 
 
-  <div class="slider">
-
-  <figure>
-
-
-  <img src="${BACKDROP_BASE_URL + actors[0].profile_path}" alt="${actors[0].original_name} poster">
-  <h3>${actors[0].name}</h3>
-
-
-  <img src="${BACKDROP_BASE_URL + actors[1].profile_path}" alt="${actors[1].original_name} poster">
-  <h3>${actors[1].name}</h3>
-
-
-  <img src="${BACKDROP_BASE_URL + actors[2].profile_path}" alt="${actors[2].original_name} poster">
-  <h3>${actors[2].name}</h3>
-
-
-  <img src="${BACKDROP_BASE_URL + actors[3].profile_path}" alt="${actors[3].original_name} poster">
-  <h3>${actors[3].name}</h3>
-
-
-  <img src="${BACKDROP_BASE_URL + actors[4].profile_path}" alt="${actors[4].original_name} poster">
-  <h3>${actors[4].name}</h3>
-  </figure>
-</div>
-  
-
-
-
-
-
-<div class="Similar-Movies">
-<b> Similar Movies: </b>
    <span>
      <img src="${BACKDROP_BASE_URL + similar[0].poster_path }" alt="${similar[0].title} poster">
      <h3>${similar[0].title}</h3>
