@@ -129,8 +129,6 @@ const renderTrailer = (trailer) => {
 // You'll need to play with this function in order to add features and enhance the style.
 // own movie page which will get the needed information form the movie details
 const renderMovie = (movie,actors,similar) => {
-  console.log(actors)
-  console.log(similar)
   let genres = movie.genres;
   const genre = genres.map(({ name }) => name).join(', ')
   trailersDetails(movie.id)
@@ -356,23 +354,19 @@ const renderActors = (actors) => {
 const actorDetails = async (actorId) => {
   const actorInfo = await fetchActor(actorId);
   const actorMovies = await fetchActorMovies(actorId);
-  alert("one")
   renderActor(actorInfo, actorMovies.cast);
 }
 const fetchActor = async (actorId) => {
   const url = constructUrl(`person/${actorId}`);
-  alert("two")
   const res = await fetch(url);
   return res.json();
 }
 const fetchActorMovies = async (actorId) => {
   const url2 = constructUrl(`person/${actorId}/movie_credits`);
-  alert("three")
   const res = await fetch(url2);
   return res.json();
 }
 const renderActor = (actorInfo, actorMovies) =>{
-  alert("four")
   let actorGenrder =" ";
   if (actorInfo.genrder === 1) {
     actorGenrder = "Male"
@@ -381,8 +375,6 @@ const renderActor = (actorInfo, actorMovies) =>{
   }else{
     actorGenrder = "Known"
   }
-  console.log(actorInfo.name)
-  alert('five')
   CONTAINER.innerHTML = `
   <div class="actor-card">
         <h2 id="actor-name">${actorInfo.name}</h2>
