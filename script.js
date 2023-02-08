@@ -155,52 +155,66 @@ const renderMovie = (movie,actors,similar) => {
       </div>
     </div>
   </div>
-  <div>
-    <b> Cast: </b>
-        <span>
-          <img src="${PROFILE_BASE_URL + actors[0].profile_path}" alt="${actors[0].original_name}">
-          <h3>${actors[0].name}</h3>
-        </span>
-        <span>
-          <img src="${PROFILE_BASE_URL + actors[1].profile_path}" alt="${actors[1].original_name}">
-          <h3>${actors[1].name}</h3>
-        </span>
-        <span>
-          <img src="${PROFILE_BASE_URL + actors[2].profile_path}" alt="${actors[2].original_name}">
-          <h3>${actors[2].name}</h3>
-        </span>
-        <span> 
-          <img src="${PROFILE_BASE_URL + actors[3].profile_path}" alt="${actors[3].original_name}">
-          <h3>${actors[3].name}</h3>
-        </span>
-        <span> 
-          <img src="${PROFILE_BASE_URL + actors[4].profile_path}" alt="${actors[4].original_name}">
-          <h3>${actors[4].name}</h3>
-        </span>
-  </div>
-  <div>
-     <b> Similar Movies: </b>
-        <span>
-          <img src="${BACKDROP_BASE_URL + similar[0].poster_path }" alt="${similar[0].title} poster">
-          <h3>${similar[0].title}</h3>
-         </span>
-        <span> 
-          <img src="${BACKDROP_BASE_URL + similar[1].poster_path }" alt="${similar[1].title} poster">
-          <h3>${similar[1].title}</h3>
-        </span>
-        <span>
-          <img src="${BACKDROP_BASE_URL + similar[2].poster_path }" alt="${similar[2].title} poster">
-          <h3>${similar[2].title}</h3>
-        </span>
-        <span> 
-          <img src="${BACKDROP_BASE_URL + similar[3].poster_path }" alt="${similar[3].title} poster">
-          <h3>${similar[3].title}</h3>
-        </span>
-        <span> 
-          <img src="${BACKDROP_BASE_URL + similar[4].poster_path }" alt="${similar[4].title} poster">
-          <h3>${similar[4].title}</h3>
-        </span>
-  </div>
+
+
+
+  <div class="slider">
+
+  <figure>
+
+
+  <img src="${BACKDROP_BASE_URL + actors[0].profile_path}" alt="${actors[0].original_name} poster">
+  <h3>${actors[0].name}</h3>
+
+
+  <img src="${BACKDROP_BASE_URL + actors[1].profile_path}" alt="${actors[1].original_name} poster">
+  <h3>${actors[1].name}</h3>
+
+
+  <img src="${BACKDROP_BASE_URL + actors[2].profile_path}" alt="${actors[2].original_name} poster">
+  <h3>${actors[2].name}</h3>
+
+
+  <img src="${BACKDROP_BASE_URL + actors[3].profile_path}" alt="${actors[3].original_name} poster">
+  <h3>${actors[3].name}</h3>
+
+
+  <img src="${BACKDROP_BASE_URL + actors[4].profile_path}" alt="${actors[4].original_name} poster">
+  <h3>${actors[4].name}</h3>
+  </figure>
+</div>
+  
+
+
+
+
+
+<div class="Similar-Movies">
+<b> Similar Movies: </b>
+   <span>
+     <img src="${BACKDROP_BASE_URL + similar[0].poster_path }" alt="${similar[0].title} poster">
+     <h3>${similar[0].title}</h3>
+    </span>
+   <span> 
+     <img src="${BACKDROP_BASE_URL + similar[1].poster_path }" alt="${similar[1].title} poster">
+     <h3>${similar[1].title}</h3>
+   </span>
+   <span>
+     <img src="${BACKDROP_BASE_URL + similar[2].poster_path }" alt="${similar[2].title} poster">
+     <h3>${similar[2].title}</h3>
+   </span>
+   <span> 
+     <img src="${BACKDROP_BASE_URL + similar[3].poster_path }" alt="${similar[3].title} poster">
+     <h3>${similar[3].title}</h3>
+   </span>
+   <span> 
+     <img src="${BACKDROP_BASE_URL + similar[4].poster_path }" alt="${similar[4].title} poster">
+     <h3>${similar[4].title}</h3>
+   </span>
+</div>
+
+
+
   <div id="movie_trailer">
     <iframe frameborder="0" id="trailer"></iframe>
   </div>`;
