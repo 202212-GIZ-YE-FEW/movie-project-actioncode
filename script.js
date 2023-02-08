@@ -442,15 +442,19 @@ const renderActor = (actorInfo, actorMovies) =>{
         <div>
         <img src="${PROFILE_BASE_URL + actorInfo.profile_path}" alt="${actorInfo.name}">
        </div>
+       <div class ="info"> 
         <p id="actor-gender"><b>Gender: </b> ${actorGenrder}</p>
         <p id="actor-popularity"><b>Popularity: </b> ${actorInfo.popularity} Minutes</p>
         <p id="actor-birthday"><b>Birthday: </b> ${actorInfo.birthday}</p>
         <p id="actor-deathday"> <b>Deathday: </b> ${actorInfo.deathday} </p>
         <h3>Biography:</h3>
         <p id="actor-biography">${actorInfo.biography}</p>
+        <h3 class="Actor-Participation">Actor Participation</h3>
   </div>
-  <div>
-    <b>Actor Participation:</b>
+  </div>
+
+  <div class ="actor-img">
+  
         <span>
           <img src="${BACKDROP_BASE_URL + actorMovies[0].poster_path}" alt="${actorMovies[0].title} poster">
           <h3>${actorMovies[0].title}</h3>

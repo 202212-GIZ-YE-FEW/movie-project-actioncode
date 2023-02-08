@@ -295,3 +295,71 @@ body {
   justify-content: center;
   
 }
+
+/* actor card */
+
+
+.actor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#actor-name {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.actor-card img {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.actor-card .info{
+  color: #fff;
+}
+
+.actor-card .info .Actor-Participation{
+  font-size: 50px;
+  padding: 20px;
+  font-weight:bolder
+}
+
+
+
+#actor-gender, #actor-popularity, #actor-birthday, #actor-deathday, #actor-biography {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.actor-img h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.actor-img {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.actor-img span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  margin: 20px;
+}
+
+.actor-img img {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
