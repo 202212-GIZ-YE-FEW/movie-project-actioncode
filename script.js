@@ -306,7 +306,7 @@ const renderMovieGener = (MovieGener) => {
   movieDiv.innerHTML = `<img class="movie-poster" src="${BACKDROP_BASE_URL + MovieGener.poster_path}" alt="${MovieGener.title} poster">
   <h3 class="movie-title">${MovieGener.title}</h3>  <h2 class="movie-average">${MovieGener.vote_average}</h2> `;
   movieDiv.addEventListener("click", () => {
-    movieDetails(movie);
+    movieDetails(MovieGener);
   });
   CONTAINER.appendChild(movieDiv);
 }
