@@ -1,11 +1,377 @@
-#movie-backdrop {
-    width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
 }
 
 .container {
-    padding-top: 32px;
+  padding-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
 
+/* style for movies in the home page */
+
+.movie img.movie-poster {
+  width: 300px;
+  height: 500px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  margin: 20px;
+}
+
+.movie:hover img.movie-poster {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie h3 {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: 10px 20px;
+  border-radius: 20px 20px 0 0;
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+}
+
+.movie:hover h3 {
+  visibility: visible;
+  transform: translate(-50%, 0%);
+}
+
+.container div:hover img.movie-poster {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.container div:hover h2.movie-average,
+.container div:hover h3.movie-title {
+  font-size: 25px;
+  font-family: fantasy;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+  text-align: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+.container div:hover h2.movie-average {
+  top: 80%;
+}
+
+.container div h2.movie-average {
+  top: 80%;
+  display: none;
+}
+
+/* The style of the own movie page */
+.container div {
+  position: relative;
+}
+
+#movie-title {
+  display: flex;
+  text-shadow: 0 0 15px rgba(153, 0, 255, 0.8); 
+  padding: 20px;
+  color: #fff;
+  font-family: fantasy;
+  width: 600px;
+  font-size: 60px; 
+}
+
+.img-overlay-class {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(278deg, rgba(0, 0, 0, 1) 2%, rgba(0, 0, 0, 0.5074404761904762) 20%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 10%),
+  linear-gradient(98deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.5074404761904762) 50%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
+}
+
+#movie_trailer{
+  padding: 100px;
+
+}
+
+ /* The navbar supported style */
+#navbar {
+  z-index: 9999;
+}
+
+#movie-release-date,
+#movie-runtime,
+#movie-Genres,#movie-language,#recieved-votes {
+  color: #fff;
+  padding: 20px 0px 0px 110px;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#movie-overview {
+  color: #fff;
+  font-size: 1.2em;
+  margin-top: 1em;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  padding-left: 300px;
+}
+
+.content-container h3{
+  font-size: 40px;
+  color: #f7dc6f;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight:bolder;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slider {
+  width: 15%;
+  margin: 50px auto;
+  overflow: hidden;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  margin: 20px;
+}
+
+.slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 5s slider infinite;
+}
+
+.slider figure img {
+  width: 20%;
+  float: left;
+}
+
+/* slide show */
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  100% {
+    left: -300%;
+  }
+
+  100% {
+  left: -300%;
+}
+  0% {
+  left: 0;
+}
+}
+
+.Similar-Movies {
+  padding-top: 350px;
+  display: flex;
+}
+
+.Similar-Movies span{
+  display: flex;
+  padding: 40px;
+}
+
+.Similar-Movies span {
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.Similar-Movies img {
+  width: 150px;
+  height: 200px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgb(178, 255, 13);
+}
+
+.Similar-Movies h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.img-container h3.name{
+  display: flex;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bolder;
+  justify-content: center;
+}
+
+/* actor card */
+.actor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#actor-name {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.actor-card img {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.actor-card .info{
+  color: #fff;
+}
+
+.actor-card .info .Actor-Participation{
+  font-size: 50px;
+  padding: 20px;
+  font-weight:bolder
+}
+
+#actor-gender, #actor-popularity, #actor-birthday, #actor-deathday, #actor-biography {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.actor-img h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.actor-img {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.actor-img span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  margin: 20px;
+}
+
+.actor-img img {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* about us style */
+.aboutUs{
+  color: white;
+}
+
+.aboutUs_p{
+  font-family: cursive;
+  margin: 3rem;
+  line-height: 25px;
+}
+
+.card_contanier{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.card_contanierDiv{
+  flex-basis: 28%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px white;
+  cursor: pointer;
+  transition: 1s;
+  color: white;
+}
+
+.card_contanierDiv p{
+  font-size: 15px;
+}
+
+.divImg{
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.divImg img{
+  width: 40px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.card_contanierDiv:hover{
+  transform: translateY(-7px);
+}
+
+/* footer code  */
+#footer {
+  background-color: rgb(51 65 85);
+  color: white; 
+  margin-top: 20px;
+}
+
+/* still didn't use it  */
 #actors {
-    margin: 24px 16px 0 0;
+  margin: 24px 16px 0 0;
 }
