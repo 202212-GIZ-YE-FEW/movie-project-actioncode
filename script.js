@@ -213,7 +213,7 @@ const renderMovie = (movie,actors,similar) => {
  
   </div>
 
-<div class="Similar-Movies"  value =Similar Movies>
+<div class="Similar-Movies"  value ="Similar Movies">
  
 
 
