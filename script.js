@@ -1,4 +1,3 @@
-
 'use strict';
 const API_KEY = "api_key=542003918769df50083a13c415bbc602";
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
@@ -133,6 +132,7 @@ const renderTrailer = (trailer) => {
   trailerDiv.appendChild(videoContainer);
 };
 
+// supported style from js
 const customStyles = `
   .video-container {
     position: relative;
@@ -151,12 +151,9 @@ const customStyles = `
     height: 100%;
   }
 `;
-
 const styleSheet = document.createElement("style");
 styleSheet.innerHTML = customStyles;
 document.head.appendChild(styleSheet);
-
-
 
 // You'll need to play with this function in order to add features and enhance the style.
 // own movie page which will get the needed information form the movie details
@@ -216,7 +213,7 @@ const renderMovie = (movie,actors,similar) => {
  
   </div>
 
-<div class="Similar-Movies"  value =Similar Movies >
+<div class="Similar-Movies"  value =Similar Movies>
  
 
 
@@ -242,8 +239,6 @@ const renderMovie = (movie,actors,similar) => {
    </span>
 </div>
 
-
-
   <div id="movie_trailer">
     <iframe frameborder="0" id="trailer"></iframe>
   </div>`;
@@ -258,11 +253,10 @@ const renderMovie = (movie,actors,similar) => {
     
     imgOverlay.style.position = 'absolute';
   
-    };
+};
 
 // for DOM which will start wiht the autorun function that will fetch everything in API
 document.addEventListener("DOMContentLoaded", autorun);
-
 
 // responsive buttom in navbar
 const buttomResponsiveness = document.getElementById('responsiveButton')
@@ -430,9 +424,9 @@ const fetchActorMovies = async (actorId) => {
 const renderActor = (actorInfo, actorMovies) =>{
   let actorGenrder =" ";
   if (actorInfo.gender === 1) {
-    actorGenrder = "Male"
-  }else if(actorInfo.gender === 2) {
     actorGenrder = "Female"
+  }else if(actorInfo.gender === 2) {
+    actorGenrder = "Male"
   }else{
     actorGenrder = "Unknown"
   }
@@ -448,7 +442,7 @@ const renderActor = (actorInfo, actorMovies) =>{
         <p id="actor-popularity"><b>Popularity: </b> ${actorInfo.popularity} Minutes</p>
         <p id="actor-birthday"><b>Birthday: </b> ${actorInfo.birthday}</p>
         <p id="actor-deathday"> <b>Deathday: </b> ${actorInfo.deathday} </p>
-        <h3>Biography:</h3>
+        <h3><b>Biography:</b></h3>
         <p id="actor-biography">${actorInfo.biography}</p>
         <h3 class="Actor-Participation">Actor Participation</h3>
   </div>

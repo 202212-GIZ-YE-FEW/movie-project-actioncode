@@ -86,8 +86,6 @@ body {
   position: relative;
 }
 
-
-
 #movie-title {
   display: flex;
   text-shadow: 0 0 15px rgba(153, 0, 255, 0.8); 
@@ -95,14 +93,11 @@ body {
   color: #fff;
   font-family: fantasy;
   width: 600px;
-  font-size: 60px;
-
-  
+  font-size: 60px; 
 }
 
 .img-overlay-class {
   position: absolute;
-  
   width: 100%;
   height: 100%;
   background: rgb(0, 0, 0);
@@ -115,18 +110,10 @@ body {
 
 }
 
-
  /* The navbar supported style */
 #navbar {
   z-index: 9999;
 }
-
-/* still didn't use it  */
-#actors {
-  margin: 24px 16px 0 0;
-}
-
-
 
 #movie-release-date,
 #movie-runtime,
@@ -138,49 +125,34 @@ body {
   justify-content: flex-start;
 }
 
-
 #movie-overview {
   color: #fff;
   font-size: 1.2em;
   margin-top: 1em;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
-  
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8); 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 80%;
   padding-left: 300px;
 }
 
 .content-container h3{
-  
   font-size: 40px;
   color: #f7dc6f;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
- 
   font-family: Arial, sans-serif;
   font-weight:bolder;
-  
   border-radius: 10px;
   overflow: hidden;
 }
-
-#footer {
-  background-color: rgb(51 65 85);
-  color: white; 
-  margin-top: 20px;
-}
-
-
 
 .slider {
   width: 15%;
   margin: 50px auto;
   overflow: hidden;
-
   border: 1px solid #fff;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -203,6 +175,7 @@ body {
   float: left;
 }
 
+/* slide show */
 @keyframes slider {
   0% {
     left: 0;
@@ -232,30 +205,25 @@ body {
   100% {
   left: -300%;
 }
-
-0% {
+  0% {
   left: 0;
 }
 }
-
 
 .Similar-Movies {
   padding-top: 350px;
   display: flex;
 }
 
-
 .Similar-Movies span{
   display: flex;
   padding: 40px;
 }
 
-
 .Similar-Movies span {
   display: inline-block;
   text-align: center;
   margin-right: 20px;
-  
 }
 
 .Similar-Movies img {
@@ -264,8 +232,6 @@ body {
   border: 1px solid #fff;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgb(178, 255, 13);
- 
-
 }
 
 .Similar-Movies h3 {
@@ -274,22 +240,15 @@ body {
   color: #fff;
 }
 
-
-
-
 .img-container h3.name{
   display: flex;
   color: rgb(255, 255, 255);
   font-size: 20px;
   font-weight: bolder;
-  
   justify-content: center;
-  
 }
 
 /* actor card */
-
-
 .actor-card {
   display: flex;
   flex-direction: column;
@@ -319,8 +278,6 @@ body {
   padding: 20px;
   font-weight:bolder
 }
-
-
 
 #actor-gender, #actor-popularity, #actor-birthday, #actor-deathday, #actor-biography {
   text-align: center;
@@ -359,11 +316,13 @@ body {
 .aboutUs{
   color: white;
 }
+
 .aboutUs_p{
   font-family: cursive;
   margin: 3rem;
   line-height: 25px;
 }
+
 .card_contanier{
   width: 80%;
   margin: auto;
@@ -372,6 +331,7 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
 .card_contanierDiv{
   flex-basis: 28%;
   padding: 10px;
@@ -382,19 +342,35 @@ body {
   transition: 1s;
   color: white;
 }
+
 .card_contanierDiv p{
   font-size: 15px;
 }
+
 .divImg{
   display: flex;
   align-items: center;
   margin: 20px 0;
 }
+
 .divImg img{
   width: 40px;
   margin-right: 20px;
   border-radius: 4px;
 }
+
 .card_contanierDiv:hover{
   transform: translateY(-7px);
+}
+
+/* footer code  */
+#footer {
+  background-color: rgb(51 65 85);
+  color: white; 
+  margin-top: 20px;
+}
+
+/* still didn't use it  */
+#actors {
+  margin: 24px 16px 0 0;
 }
