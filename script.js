@@ -481,5 +481,50 @@ const renderActor = (actorInfo, actorMovies) =>{
 
 const about = document.getElementById('about')
 about.addEventListener('click', () =>{
-  
+  containerChildDelete()
+  CONTAINER.innerHTML=`
+  <div class="aboutUs_container">
+  <div class="aboutUs">
+      <p class="aboutUs_p">
+          This website was built by ACTION CODE Team, ACTION CODE Team is a creative
+          and profissional team that serve a lot of tecnical services.<br />
+          This project made by HTML, CSS and JavaScript and used the TMDB API. It
+          was Developed based on a request by Re: coded.
+      </p>
+  </div>
+  <div class="card_contanier">
+      <div class="card_contanierDiv">
+          <div class="divImg"><img src="asset/img/profile1.jpg" alt="HEKMAT MO.">
+              <div><h5>HEKMAT MO.</h5></div>
+          </div>
+          <p>Telecommincation Engineer, Front End developer and a person
+              who love to know Anything about Everything</p>
+      </div>
+      <div class="card_contanierDiv">
+          <div class="divImg"><img src="asset/img/profile3.jpeg" alt="Mohammed Al-qershi">
+              <div><h5>Mohammed Al-qershi</h5></div>
+          </div>
+          <p>Code eat sleep</p>
+      </div>
+      <div class="card_contanierDiv">
+          <div class="divImg"><img src="asset/img/profile2.png" alt="Fatima Gubari" style="background-color: white;">
+              <div><h5>Fatima Gubari</h5></div>
+          </div>
+          <p>A Front-end developer and an IT student that want to become a
+              full-stack developer and try to make a something special.</p>
+      </div>
+      <div class="card_contanierDiv">
+          <div class="divImg"><img src="asset/img/profile4.jpg" alt="Aseel Flihan">
+              <div><h5>Aseel Flihan</h5></div>
+          </div>
+          <p>Code eat sleep</p>
+      </div>
+      <div class="card_contanierDiv">
+          <div class="divImg"><img src="asset/img/profile5.png" alt="Abduallh Aidha">
+              <div><h5>Abduallh Aidha</h5></div>
+          </div>
+          <p>Web developer</p>
+      </div>
+  </div>
+</div>`
 })

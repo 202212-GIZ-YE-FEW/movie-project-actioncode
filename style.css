@@ -110,13 +110,6 @@ body {
   linear-gradient(98deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.5074404761904762) 50%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
 }
 
-
-/* #movie-release-date{
- background-color: ;
-
-} */
-
-
 #movie_trailer{
   padding: 100px;
 
@@ -155,8 +148,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 80%;
   padding-left: 300px;
-
-  
 }
 
 .content-container h3{
@@ -362,4 +353,48 @@ body {
   height: 200px;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+/* about us style */
+.aboutUs{
+  color: white;
+}
+.aboutUs_p{
+  font-family: cursive;
+  margin: 3rem;
+  line-height: 25px;
+}
+.card_contanier{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.card_contanierDiv{
+  flex-basis: 28%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 6px white;
+  cursor: pointer;
+  transition: 1s;
+  color: white;
+}
+.card_contanierDiv p{
+  font-size: 15px;
+}
+.divImg{
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.divImg img{
+  width: 40px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+.card_contanierDiv:hover{
+  transform: translateY(-7px);
 }
