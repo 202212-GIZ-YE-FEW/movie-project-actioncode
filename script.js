@@ -429,13 +429,14 @@ const fetchActorMovies = async (actorId) => {
 }
 const renderActor = (actorInfo, actorMovies) =>{
   let actorGenrder =" ";
-  if (actorInfo.genrder === 1) {
+  if (actorInfo.gender === 1) {
     actorGenrder = "Male"
-  }else if(actorInfo.genrder === 2) {
+  }else if(actorInfo.gender === 2) {
     actorGenrder = "Female"
   }else{
-    actorGenrder = "Known"
+    actorGenrder = "Unknown"
   }
+  
   CONTAINER.innerHTML = `
   <div class="actor-card">
         <h2 id="actor-name">${actorInfo.name}</h2>
