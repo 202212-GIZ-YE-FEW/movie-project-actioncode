@@ -9,9 +9,9 @@ const CONTAINER = document.querySelector(".container");
 const youtube = document.querySelector(".youtube");
 
 // Don't touch this function please
-const autorun = async (path,query) => {
+const autorun = async (path, query) => {
   // movies in home Page
-  const movies = await fetchMovies(path,query);
+  const movies = await fetchMovies(path, query);
   renderMovies(movies.results);
 
   // for genres in first dropdown menu
@@ -25,9 +25,9 @@ const constructUrl = (path) => {
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
-const fetchMovies = async (path,query = "") => {
+const fetchMovies = async (path, query = "") => {
   // the fetch the movies that is streming know
-  const url = constructUrl(path)+query;
+  const url = constructUrl(path) + query;
   const res = await fetch(url);
   return res.json();
 };
@@ -103,7 +103,7 @@ const movieDetails = async (movie) => {
   const movieActors = await fetchMovieActors(movie.id);
   const sameMovie = await fetchSameMovie(movie.id);
   // own movie page
-  renderMovie(movieRes,movieActors.cast,sameMovie.results);
+  renderMovie(movieRes, movieActors.cast, sameMovie.results);
 };
 
 //This function is to fetch the movie trailer
@@ -157,7 +157,7 @@ document.head.appendChild(styleSheet);
 
 // You'll need to play with this function in order to add features and enhance the style.
 // own movie page which will get the needed information form the movie details
-const renderMovie = (movie,actors,similar) => {
+const renderMovie = (movie, actors, similar) => {
   let genres = movie.genres;
   const genre = genres.map(({ name }) => name).join(', ')
   trailersDetails(movie.id)
@@ -169,12 +169,10 @@ const renderMovie = (movie,actors,similar) => {
         <h2 id="movie-title">${movie.title}</h2>
         <p id="movie-release-date"><b>Release Date: </b> ${movie.release_date}</p>
         <p id="movie-runtime"><b>Runtime: </b> ${movie.runtime} Minutes</p>
-        <p id="movie-language"><b>Movie's Language: </b> ${
-          movie.original_language
-        }</p>
-        <p id="recieved-votes"> <b> Recieved Votes: </b> ${
-          movie.vote_count
-        } votes</p>
+        <p id="movie-language"><b>Movie's Language: </b> ${movie.original_language
+    }</p>
+        <p id="recieved-votes"> <b> Recieved Votes: </b> ${movie.vote_count
+    } votes</p>
         <p id="movie-Genres"><b>Genres: </b>${genre}</p>
         <h3>Overview:</h3>
         <p id="movie-overview">${movie.overview}</p>
@@ -218,23 +216,23 @@ const renderMovie = (movie,actors,similar) => {
 
 
    <span>
-     <img src="${BACKDROP_BASE_URL + similar[0].poster_path }" alt="${similar[0].title} poster">
+     <img src="${BACKDROP_BASE_URL + similar[0].poster_path}" alt="${similar[0].title} poster">
      <h3>${similar[0].title}</h3>
     </span>
    <span> 
-     <img src="${BACKDROP_BASE_URL + similar[1].poster_path }" alt="${similar[1].title} poster">
+     <img src="${BACKDROP_BASE_URL + similar[1].poster_path}" alt="${similar[1].title} poster">
      <h3>${similar[1].title}</h3>
    </span>
    <span>
-     <img src="${BACKDROP_BASE_URL + similar[2].poster_path }" alt="${similar[2].title} poster">
+     <img src="${BACKDROP_BASE_URL + similar[2].poster_path}" alt="${similar[2].title} poster">
      <h3>${similar[2].title}</h3>
    </span>
    <span> 
-     <img src="${BACKDROP_BASE_URL + similar[3].poster_path }" alt="${similar[3].title} poster">
+     <img src="${BACKDROP_BASE_URL + similar[3].poster_path}" alt="${similar[3].title} poster">
      <h3>${similar[3].title}</h3>
    </span>
    <span> 
-     <img src="${BACKDROP_BASE_URL + similar[4].poster_path }" alt="${similar[4].title} poster">
+     <img src="${BACKDROP_BASE_URL + similar[4].poster_path}" alt="${similar[4].title} poster">
      <h3>${similar[4].title}</h3>
    </span>
 </div>
@@ -243,16 +241,16 @@ const renderMovie = (movie,actors,similar) => {
     <iframe frameborder="0" id="trailer"></iframe>
   </div>`;
 
-    const imgContainer = document.querySelector('.img-container');
-    imgContainer.style.backgroundImage = `url(${BACKDROP_BASE_URL + movie.backdrop_path})`;
-    imgContainer.style.backgroundSize = `cover`;
-    imgContainer.style.height = `700px`;
-    
-    const imgOverlay = document.querySelector('.img-overlay');
-    imgOverlay.classList.add('img-overlay-class');
-    
-    imgOverlay.style.position = 'absolute';
-  
+  const imgContainer = document.querySelector('.img-container');
+  imgContainer.style.backgroundImage = `url(${BACKDROP_BASE_URL + movie.backdrop_path})`;
+  imgContainer.style.backgroundSize = `cover`;
+  imgContainer.style.height = `700px`;
+
+  const imgOverlay = document.querySelector('.img-overlay');
+  imgOverlay.classList.add('img-overlay-class');
+
+  imgOverlay.style.position = 'absolute';
+
 };
 
 // for DOM which will start wiht the autorun function that will fetch everything in API
@@ -303,12 +301,12 @@ const GenresOfAllMoviesDetails = async (element) => {
   getMoviesByGener(element, genreOfMovies.results)
 }
 // This function is to open based on geners
-const getMoviesByGener = (element,GenresObject) => {
+const getMoviesByGener = (element, GenresObject) => {
   const genersArray = [];
   GenresObject.map((eachGenresObjece) => {
     containerChildDelete()
     for (let i = 0; i < eachGenresObjece.genre_ids.length; i++) {
-      if(eachGenresObjece.genre_ids[i] === element ) {
+      if (eachGenresObjece.genre_ids[i] === element) {
         MovieGenerDetails(eachGenresObjece.id)
       }
     }
@@ -348,27 +346,31 @@ document.addEventListener("DOMContentLoaded", autorun('movie/now_playing'));
 const popular = document.getElementById('popular')
 popular.addEventListener('click', () => {
   containerChildDelete()
-  autorun(`movie/popular`)})
+  autorun(`movie/popular`)
+})
 
 const top_rated = document.getElementById('top_rated')
 top_rated.addEventListener('click', () => {
   containerChildDelete()
-  autorun(`movie/top_rated`)})
+  autorun(`movie/top_rated`)
+})
 
 const coming_up = document.getElementById('coming_up')
 coming_up.addEventListener('click', () => {
   containerChildDelete()
-  autorun(`movie/upcoming`)})
+  autorun(`movie/upcoming`)
+})
 
 const playing_now = document.getElementById('playing_now')
 playing_now.addEventListener('click', () => {
   containerChildDelete()
-  autorun(`movie/now_playing`)})
+  autorun(`movie/now_playing`)
+})
 
 // These codes for search engine
 const search = document.getElementById('default_search')
 const searchBtn = document.getElementById('searchBtn')
-searchBtn.addEventListener('click', ()=>{
+searchBtn.addEventListener('click', () => {
   if (search.value !== null) {
     containerChildDelete()
     autorun(`search/movie`, `&query=${search.value}`);
@@ -394,11 +396,11 @@ const renderActors = (actors) => {
   actors.map((actor) => {
     const actorsDiv = document.createElement("div");
     actorsDiv.classList.add('movie')
-    actorsDiv.innerHTML = `<img class="movie-poster" src="${PROFILE_BASE_URL+ actor.profile_path}" alt="${actor.name}">
+    actorsDiv.innerHTML = `<img class="movie-poster" src="${PROFILE_BASE_URL + actor.profile_path}" alt="${actor.name}">
     <h3 class="movie-title" >${actor.name}</h3>`;
     actorsDiv.addEventListener("click", () => {
       // send each actor by its id to get details
-      console.log(actor.id)
+      // console.log(actor.id)
       actorDetails(actor.id);
     });
     CONTAINER.appendChild(actorsDiv);
@@ -421,19 +423,19 @@ const fetchActorMovies = async (actorId) => {
   const res = await fetch(url2);
   return res.json();
 }
-const renderActor = (actorInfo, actorMovies) =>{
-  let actorGenrder =" ";
+const renderActor = (actorInfo, actorMovies) => {
+  let actorGenrder = " ";
   if (actorInfo.gender === 1) {
     actorGenrder = "Female"
-  }else if(actorInfo.gender === 2) {
+  } else if (actorInfo.gender === 2) {
     actorGenrder = "Male"
-  }else{
+  } else {
     actorGenrder = "Unknown"
   }
-  
+
   CONTAINER.innerHTML = `
   <div class="actor-card">
-        <h2 id="actor-name">${actorInfo.name}</h2>
+        <h2 id="actor-name" class="text-1xl font-mono">${actorInfo.name}</h2>
         <div>
         <img src="${PROFILE_BASE_URL + actorInfo.profile_path}" alt="${actorInfo.name}">
        </div>
@@ -442,9 +444,9 @@ const renderActor = (actorInfo, actorMovies) =>{
         <p id="actor-popularity"><b>Popularity: </b> ${actorInfo.popularity} Minutes</p>
         <p id="actor-birthday"><b>Birthday: </b> ${actorInfo.birthday}</p>
         <p id="actor-deathday"> <b>Deathday: </b> ${actorInfo.deathday} </p>
-        <h3><b>Biography:</b></h3>
-        <p id="actor-biography">${actorInfo.biography}</p>
-        <h3 class="Actor-Participation">Actor Participation</h3>
+        <h3 class="text-1xl font-mono"><b>Biography:</b></h3>
+        <p id="actor-biography" class="font-mono">${actorInfo.biography}</p>
+        <h3 class="Actor-Participation font-mono">Actor Participation</h3>
   </div>
   </div>
 
@@ -474,9 +476,9 @@ const renderActor = (actorInfo, actorMovies) =>{
 }
 
 const about = document.getElementById('about')
-about.addEventListener('click', () =>{
+about.addEventListener('click', () => {
   containerChildDelete()
-  CONTAINER.innerHTML=`
+  CONTAINER.innerHTML = `
   <div class="aboutUs_container">
   <div class="aboutUs">
       <p class="aboutUs_p">
